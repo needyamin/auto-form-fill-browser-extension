@@ -1,0 +1,10 @@
+{
+  "name": "autoform-fill",
+  "version": "2.0.0",
+  "private": true,
+  "description": "QA form-filling & test-data toolkit browser extension (Chrome MV3 + Firefox MV2). Build with: node build.js",
+  "scripts": {
+    "build": "node build.js",
+    "zip": "node build.js --zip"
+  }
+}

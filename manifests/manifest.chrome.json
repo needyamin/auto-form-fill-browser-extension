@@ -3,26 +3,15 @@
   "name": "AutoForm Fill – Test Data & Form Filler for QA",
   "short_name": "AutoForm Fill",
   "description": "QA form-filling toolkit: realistic, invalid, boundary and security test data, profiles, field picker, bulk datasets — all local.",
-  "permissions": [
-    "activeTab",
-    "scripting",
-    "storage",
-    "contextMenus"
-  ],
-  "host_permissions": [
-    "<all_urls>"
-  ],
+  "permissions": ["activeTab", "scripting", "storage", "contextMenus"],
+  "host_permissions": ["<all_urls>"],
   "background": {
     "service_worker": "background.js"
   },
   "content_scripts": [
     {
-      "matches": [
-        "<all_urls>"
-      ],
-      "js": [
-        "content.js"
-      ],
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
       "run_at": "document_idle",
       "all_frames": true
     }
@@ -43,15 +32,11 @@
   },
   "commands": {
     "fill-form": {
-      "suggested_key": {
-        "default": "Alt+Shift+F"
-      },
+      "suggested_key": { "default": "Alt+Shift+F" },
       "description": "Fill form with test data"
     },
     "clear-form": {
-      "suggested_key": {
-        "default": "Alt+Shift+C"
-      },
+      "suggested_key": { "default": "Alt+Shift+C" },
       "description": "Clear form fields"
     },
     "pick-fields": {
@@ -63,6 +48,5 @@
     "32": "icons/icon32.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
-  },
-  "version": "2.0.0"
+  }
 }

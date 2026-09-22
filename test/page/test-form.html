@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AutoForm Fill — Test Form</title>
+<style>
+  body { font: 14px/1.5 system-ui, sans-serif; max-width: 760px; margin: 24px auto; padding: 0 16px; color: #111; }
+  fieldset { border: 1px solid #ddd; border-radius: 8px; margin-bottom: 16px; padding: 12px 16px; }
+  legend { font-weight: 600; padding: 0 6px; }
+  .f { display: flex; flex-direction: column; gap: 3px; margin-bottom: 10px; }
+  label { font-size: 12px; color: #555; }
+  input, select, textarea { font: inherit; padding: 6px 8px; border: 1px solid #ccc; border-radius: 6px; width: 100%; max-width: 420px; }
+  .row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .row .f { flex: 1; min-width: 200px; }
+  .checks label, .radios label { display: flex; gap: 6px; align-items: center; font-size: 13px; color: #111; }
+  .checks input, .radios input { width: auto; }
+  button { font: inherit; padding: 8px 14px; border-radius: 6px; border: none; background: #2563eb; color: #fff; cursor: pointer; }
+  button.type-btn { background: #6b7280; }
+  .dd-wrap { position: relative; width: 300px; }
+  .dd-btn { width: 100%; background: #fff; border: 1px solid #ccc; text-align: left; color: #111; padding: 6px 10px; }
+  .dd-list { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #fff; border: 1px solid #ccc; border-radius: 6px; list-style: none; margin: 2px 0 0; padding: 4px; z-index: 5; box-shadow: 0 8px 20px rgba(0,0,0,.12); }
+  .dd-list.open { display: block; }
+  .dd-list li { padding: 6px 10px; border-radius: 4px; cursor: pointer; }
+  .dd-list li:hover { background: #eff6ff; }
+  #status { position: fixed; top: 10px; right: 10px; background: #111; color: #fff; padding: 8px 12px; border-radius: 8px; font-size: 12px; display: none; }
+</style>
+</head>
+<body>
+<h1>AutoForm Fill — comprehensive test form</h1>
+<p>Open the extension popup and hit <b>Fill form</b>, or run <code>window.__AutoFormFill()</code> in the console.</p>
+
+<header>
+  <form role="search" onsubmit="return false">
+    <input type="search" name="q" placeholder="Search site (should be skipped)">
+  </form>
+</header>
+
+<form id="main-form" onsubmit="event.preventDefault(); status('SUBMITTED — fill guard failed!');">
+  <fieldset>
+    <legend>Identity</legend>
+    <div class="row">
+      <div class="f"><label for="fname">First name</label><input id="fname" name="fname" autocomplete="given-name"></div>
+      <div class="f"><label for="lname">Last name</label><input id="lname" name="lname" autocomplete="family-name"></div>
+    </div>
+    <div class="row">
+      <div class="f"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email"></div>
+      <div class="f"><label for="phone">Mobile number</label><input id="phone" name="phone" type="tel" autocomplete="tel"></div>
+    </div>
+    <div class="row">
+      <div class="f"><label for="uname">Username</label><input id="uname" name="username"></div>
+      <div class="f"><label for="pass">Password</label><input id="pass" name="password" type="password" minlength="8"></div>
+      <div class="f"><label for="pass2">Confirm password</label><input id="pass2" name="confirm_password" type="password"></div>
+    </div>
+    <div class="f"><label for="dob">Date of birth</label><input id="dob" name="dob" type="date" min="1930-01-01" max="2025-12-31"></div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Address</legend>
+    <div class="f"><label for="street">Street address</label><input id="street" name="street_address" autocomplete="street-address"></div>
+    <div class="row">
+      <div class="f"><label for="city">City</label><input id="city" name="city"></div>
+      <div class="f"><label for="state">State / Province</label><input id="state" name="state"></div>
+      <div class="f"><label for="zip">ZIP / Postal code</label><input id="zip" name="zip_code" inputmode="numeric"></div>
+    </div>
+    <div class="f"><label for="country">Country</label>
+      <select id="country" name="country">
+        <option value="">— Select country —</option>
+        <option>United States</option><option>United Kingdom</option><option>Germany</option>
+        <option>France</option><option>Bangladesh</option><option>India</option><option>Japan</option>
+      </select>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Details</legend>
+    <div class="row">
+      <div class="f"><label for="age">Age</label><input id="age" name="age" type="number" min="18" max="100"></div>
+      <div class="f"><label for="salary">Expected salary</label><input id="salary" name="salary" type="number"></div>
+      <div class="f"><label for="site">Website</label><input id="site" name="website" type="url"></div>
+    </div>
+    <div class="f"><label for="nid">National ID (NID)</label><input id="nid" name="nid"></div>
+    <div class="f"><label for="nidfmt">NID formatted</label><input id="nidfmt" name="nid_formatted" placeholder="XXXX-XXXX-XXXX"></div>
+    <div class="row">
+      <div class="f"><label for="join">Joining date</label><input id="join" name="joining_date" type="date"></div>
+      <div class="f"><label for="appt">Appointment time</label><input id="appt" name="appointment" type="time"></div>
+      <div class="f"><label for="dt">Meeting datetime</label><input id="dt" name="meeting" type="datetime-local"></div>
+    </div>
+    <div class="row">
+      <div class="f"><label for="mon">Billing month</label><input id="mon" name="billing_month" type="month"></div>
+      <div class="f"><label for="wk">Week number</label><input id="wk" name="week" type="week"></div>
+      <div class="f"><label for="fav">Favourite colour</label><input id="fav" name="fav_color" type="color"></div>
+    </div>
+    <div class="f"><label for="vol">Volume (range)</label><input id="vol" name="volume" type="range" min="0" max="50"></div>
+    <div class="f"><label for="bio">Short bio (max 200 chars)</label><textarea id="bio" name="bio" maxlength="200"></textarea></div>
+    <div class="f"><label for="notes">Notes</label><textarea id="notes" name="notes"></textarea></div>
+    <div class="f"><label for="cap">Company</label><input id="cap" name="company_name"></div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Choices</legend>
+    <div class="f"><label>Gender</label>
+      <div class="radios">
+        <label><input type="radio" name="gender" value="male"> Male</label>
+        <label><input type="radio" name="gender" value="female"> Female</label>
+      </div>
+    </div>
+    <div class="f"><label for="blood">Blood group</label>
+      <select id="blood" name="blood_group">
+        <option value="">Select…</option><option>A+</option><option>B+</option><option>O+</option><option>AB+</option>
+      </select>
+    </div>
+    <div class="f"><label for="skills">Skills (multi-select)</label>
+      <select id="skills" name="skills" multiple size="4">
+        <option value="js">JavaScript</option><option value="py">Python</option>
+        <option value="java">Java</option><option value="go">Go</option><option value="rust">Rust</option>
+      </select>
+    </div>
+    <div class="f checks">
+      <label><input type="checkbox" name="terms" id="terms"> I agree to the terms &amp; conditions</label>
+      <label><input type="checkbox" name="newsletter" id="newsletter"> Subscribe to newsletter</label>
+    </div>
+    <div class="f"><label>Favourite framework (custom dropdown)</label>
+      <div class="dd-wrap" id="customDd">
+        <button type="button" class="dd-btn" id="ddBtn">Choose…</button>
+        <ul class="dd-list" id="ddList" role="listbox">
+          <li role="option">React</li><li role="option">Vue</li><li role="option">Angular</li>
+          <li role="option">Svelte</li><li role="option">Solid</li>
+        </ul>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Uploads &amp; rich text</legend>
+    <div class="f"><label for="photo">Profile photo</label><input id="photo" name="photo" type="file" accept="image/*"></div>
+    <div class="f"><label for="resume">Resume (PDF)</label><input id="resume" name="resume" type="file" accept=".pdf"></div>
+    <div class="f"><label for="docs">Documents (multiple)</label><input id="docs" name="documents" type="file" multiple></div>
+    <div class="f"><label>Comments (contenteditable)</label>
+      <div id="ce" contenteditable="true" style="border:1px solid #ccc;border-radius:6px;padding:8px;min-height:40px;max-width:420px"></div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Dynamic section (repeater)</legend>
+    <div id="repeaters"></div>
+    <button type="button" class="type-btn" id="addRow">+ Add education</button>
+  </fieldset>
+
+  <fieldset>
+    <legend>Shadow DOM field</legend>
+    <div id="shadowHost"></div>
+  </fieldset>
+
+  <button type="submit">Submit</button>
+  <button type="button" class="type-btn" onclick="status('works: ' + JSON.stringify(collectState()))">Dump values to console</button>
+</form>
+
+<div id="status"></div>
+
+<script>
+  function status(msg) {
+    const el = document.getElementById('status');
+    el.textContent = msg; el.style.display = 'block';
+    clearTimeout(el._t); el._t = setTimeout(() => el.style.display = 'none', 4000);
+    console.log('[test-form]', msg);
+  }
+  window.collectState = function () {
+    const f = document.getElementById('main-form');
+    const out = {};
+    new FormData(f).forEach((v, k) => { out[k] = typeof v === 'string' ? v : (v.name || 'file'); });
+    out.__contenteditable = document.getElementById('ce').textContent;
+    out.__customDropdown = document.getElementById('ddBtn').textContent;
+    out.__shadow = document.getElementById('shadowInput') ? document.getElementById('shadowInput').value : '(none)';
+    out.__repeaterRows = document.querySelectorAll('.rep-row input').length;
+    return out;
+  };
+
+  // custom dropdown
+  const ddBtn = document.getElementById('ddBtn'), ddList = document.getElementById('ddList');
+  ddBtn.addEventListener('click', () => ddList.classList.toggle('open'));
+  ddList.addEventListener('click', (e) => {
+    if (e.target.tagName === 'LI') { ddBtn.textContent = e.target.textContent; ddList.classList.remove('open'); }
+  });
+
+  // repeater
+  document.getElementById('addRow').addEventListener('click', () => {
+    const row = document.createElement('div');
+    row.className = 'rep-row';
+    row.style.cssText = 'display:flex;gap:8px;margin-bottom:8px;max-width:420px';
+    row.innerHTML = '<input name="edu_degree[]" placeholder="Degree"><input name="edu_institute[]" placeholder="Institute">';
+    document.getElementById('repeaters').appendChild(row);
+  });
+
+  // shadow DOM field
+  const host = document.getElementById('shadowHost');
+  const root = host.attachShadow({ mode: 'open' });
+  root.innerHTML = '<label style="font-size:12px;color:#555;display:block">Shadow input (employee code)</label><input id="shadowInput" name="employee_code">';
+</script>
+</body>
+</html>
