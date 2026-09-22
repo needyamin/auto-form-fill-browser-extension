@@ -4,6 +4,8 @@ A browser extension for **Chrome** (Manifest V3) and **Firefox** (Manifest V2) t
 
 **Use case:** Open a form → pick a **data mode** → **Fill form** → every fillable field gets sensible, targeted test data and you get a per-field report. No backend, no account — everything runs locally in your browser.
 
+<img width="567" height="567" alt="Image" src="https://github.com/user-attachments/assets/7222cf16-27ea-4f4f-9be7-48e18b837395" />
+
 ---
 
 ## What's new in 2.0
