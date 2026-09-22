@@ -22,10 +22,9 @@ body {
 header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
 .brand { display: flex; align-items: center; gap: 9px; }
 .logo {
-  width: 30px; height: 30px; border-radius: 8px;
-  background: linear-gradient(135deg, #2563eb, #7c3aed);
-  color: #fff; font-weight: 700; font-size: 12px;
-  display: flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; border-radius: 8px;
+  object-fit: cover; display: block; flex-shrink: 0;
+  box-shadow: 0 1px 4px rgba(0,0,0,.18);
 }
 h1 { font-size: 14px; font-weight: 650; }
 .sub { font-size: 11px; color: var(--muted); }
@@ -91,8 +90,7 @@ button.secondary:hover { background: #f3f4f6; }
 .field-line .fl { color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 150px; }
 .field-line .vl { color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; direction: rtl; text-align: left; }
 
-footer { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-top: 12px; padding-top: 8px; border-top: 1px solid var(--border); font-size: 10.5px; color: var(--muted); }
-footer .keys { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
-footer a { margin-left: auto; color: var(--muted); text-decoration: none; }
+footer { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-top: 12px; padding-top: 9px; border-top: 1px solid var(--border); font-size: 10.5px; color: var(--muted); }
+footer .ver { font-size: 10px; }
+footer a { color: var(--muted); text-decoration: none; }
 footer a:hover { text-decoration: underline; }
-kbd { padding: 1px 4px; border: 1px solid var(--border); border-radius: 3px; font-size: 9.5px; background: #f7f7f7; }

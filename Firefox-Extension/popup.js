@@ -190,6 +190,9 @@
   /* ---------- init ---------- */
 
   async function init() {
+    try { $('version').textContent = API.runtime?.getManifest?.().version || '2.0.0'; }
+    catch (e) { $('version').textContent = '2.0.0'; }
+
     try {
       const tabs = await new Promise((res) => API.tabs.query({ active: true, currentWindow: true }, (t) => res(t || [])));
       tabId = tabs[0]?.id || null;
