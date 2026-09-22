@@ -111,6 +111,9 @@ input[type=color] { width: 46px; height: 30px; padding: 2px; cursor: pointer; }
 .log-line .val { word-break: break-all; }
 
 .page-foot { text-align: center; color: var(--muted); font-size: 12px; margin-top: 18px; }
+.page-foot .credits { margin-top: 6px; }
+.page-foot a { color: var(--accent); text-decoration: none; }
+.page-foot a:hover { text-decoration: underline; }
 
 .toast {
   position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(20px);

@@ -3,6 +3,8 @@
   "name": "AutoForm Fill – Test Data & Form Filler for QA",
   "short_name": "AutoForm Fill",
   "description": "QA form-filling toolkit: realistic, invalid, boundary and security test data, profiles, field picker, bulk datasets — all local.",
+  "author": "Md. Yamin Hossain (ANSNEW TECH.)",
+  "homepage_url": "https://inside.ansnew.com/",
   "permissions": ["activeTab", "scripting", "storage", "contextMenus"],
   "host_permissions": ["<all_urls>"],
   "background": {

@@ -3,6 +3,7 @@
   'use strict';
 
   const $ = (id) => document.getElementById(id);
+  const API = globalThis.chrome || globalThis.browser;
   let data = null;
   let profile = null;
   let saveTimer = null;
@@ -598,6 +599,9 @@
     AFFShared.getFiles().then(updateFilesStatus);
     renderLogs();
     renderGlobalShortcut();
+
+    try { $('optVersion').textContent = API.runtime?.getManifest?.().version || '2.0.0'; }
+    catch (e) { /* keep HTML fallback */ }
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

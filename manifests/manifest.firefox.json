@@ -3,9 +3,15 @@
   "name": "AutoForm Fill – Test Data & Form Filler for QA",
   "short_name": "AutoForm Fill",
   "description": "QA form-filling toolkit: realistic, invalid, boundary and security test data, profiles, field picker, bulk datasets — all local.",
+  "author": "Md. Yamin Hossain (ANSNEW TECH.)",
+  "developer": {
+    "name": "Md. Yamin Hossain (ANSNEW TECH.)",
+    "url": "https://inside.ansnew.com/"
+  },
+  "homepage_url": "https://inside.ansnew.com/",
   "browser_specific_settings": {
     "gecko": {
-      "id": "autoform-fill-fake-data@addon",
+      "id": "autoform-fill@ansnew.com",
       "strict_min_version": "115.0",
       "data_collection_permissions": {
         "required": ["none"],
