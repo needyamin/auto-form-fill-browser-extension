@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — AutoForm Fill</title>
+<meta name="description" content="Privacy policy for the AutoForm Fill browser extension. AutoForm Fill collects no data: everything runs and stays locally in your browser.">
+<style>
+  :root {
+    --text: #111827;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --bg: #f9fafb;
+    --accent: #2563eb;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font: 16px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    margin: 0;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 48px 24px 64px;
+  }
+  header { margin-bottom: 32px; }
+  h1 {
+    font-size: 28px;
+    line-height: 1.25;
+    margin: 0 0 6px;
+  }
+  .meta { color: var(--muted); font-size: 14px; }
+  h2 {
+    font-size: 19px;
+    margin: 36px 0 10px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+  }
+  h3 { font-size: 16px; margin: 22px 0 6px; }
+  p, li { margin: 8px 0; }
+  ul, ol { padding-left: 24px; }
+  a { color: var(--accent); }
+  .summary {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 0 0 8px;
+  }
+  .summary p:first-child { margin-top: 0; }
+  .summary p:last-child { margin-bottom: 0; }
+  code {
+    font: 0.875em ui-monospace, SFMono-Regular, Consolas, monospace;
+    background: #f3f4f6;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1px 5px;
+    white-space: nowrap;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin: 12px 0;
+    font-size: 15px;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  th { background: var(--bg); font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+  tr:last-child td { border-bottom: none; }
+  footer {
+    margin-top: 40px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Privacy Policy — AutoForm Fill</h1>
+  <p class="meta">Effective date: September 23, 2026 · Applies to AutoForm Fill v2.0 and later (Chrome &amp; Firefox)</p>
+</header>
+
+<div class="summary">
+  <p><strong>The short version:</strong> AutoForm Fill does <strong>not</strong> collect, transmit, sell, or share any of your data. It has no servers, no accounts, no analytics, and no tracking. Everything it does happens locally in your browser, and everything it saves stays on your device. The test data it generates is fake and synthesized on the fly — it never reads or stores your real personal information beyond what you type into its own settings.</p>
+</div>
+
+<h2>1. About this extension</h2>
+<p>AutoForm Fill – Test Data &amp; Form Filler for QA ("AutoForm Fill", "the extension") is a browser extension for Google Chrome (Manifest V3) and Mozilla Firefox (Manifest V2). It fills web forms with synthetic test data to help QA engineers, testers, and developers exercise forms without typing repetitive values. It is developed and maintained by Md. Yamin Hossain (ANSNEW TECH.).</p>
+
+<h2>2. Data we collect</h2>
+<p><strong>We collect nothing.</strong> Specifically, the extension:</p>
+<ul>
+  <li>does <strong>not</strong> send any data to any server — it makes no network requests of its own;</li>
+  <li>does <strong>not</strong> include analytics, telemetry, ads, or tracking of any kind;</li>
+  <li>does <strong>not</strong> read, harvest, or transmit the contents of the pages you visit or the forms you fill, other than to modify the form fields you explicitly ask it to fill;</li>
+  <li>does <strong>not</strong> require or use an account, sign-in, or registration;</li>
+  <li>does <strong>not</strong> sell, rent, or share any information with third parties.</li>
+</ul>
+<p>This is also declared technically in the Firefox manifest via <code>browser_specific_settings.gecko.data_collection_permissions</code> with <code>"required": ["none"]</code>.</p>
+
+<h2>3. Data stored locally on your device</h2>
+<p>To function, the extension saves your preferences in your browser's local extension storage (<code>storage.local</code>). This data never leaves your device and is not accessible to any website. It consists of:</p>
+<table>
+  <tr><th>What</th><th>Stored under</th><th>Contents</th></tr>
+  <tr><td>Settings, profiles &amp; rules</td><td><code>affData</code></td><td>Your chosen data mode, locale, number/date ranges, per-field rules, named profiles, and site URL patterns you configure.</td></tr>
+  <tr><td>Fill history</td><td><code>affLogs</code></td><td>A rolling log of your last 25 fill operations (per-field results and the generated values), for your review. Older entries are discarded automatically.</td></tr>
+  <tr><td>Custom upload files</td><td><code>affFiles</code></td><td>Optional files (max 2&nbsp;MB each) that you choose to provide for form file-upload testing.</td></tr>
+</table>
+<p>All of this data is generated or supplied by you, exists only in your browser profile, and is permanently deleted when you remove the extension or use the reset option in its settings.</p>
+
+<h2>4. Generated test data</h2>
+<p>The values the extension inserts into forms (names, emails, phone numbers, addresses, and so on) are <strong>synthetic</strong> — randomly generated from built-in locale datasets on your device. They are not real personal data, they are not derived from your identity, and they are not recorded anywhere by us.</p>
+
+<h2>5. Permissions and why they are needed</h2>
+<p>The extension requests only the permissions required for its core function:</p>
+<table>
+  <tr><th>Permission</th><th>Why</th></tr>
+  <tr><td><code>activeTab</code> / <code>&lt;all_urls&gt;</code> content script</td><td>To detect and fill form fields on the page you are viewing, and to make the keyboard shortcuts work in every tab, including iframes.</td></tr>
+  <tr><td><code>scripting</code> (Chrome)</td><td>To inject the fill engine into the current tab on demand, when you click "Fill form".</td></tr>
+  <tr><td><code>storage</code></td><td>To remember your settings, profiles, rules, logs, and custom files locally (see section 3).</td></tr>
+  <tr><td><code>contextMenus</code></td><td>To provide the right-click "Fill form with test data" action.</td></tr>
+</table>
+<p>Broad host access is used solely to run the fill engine locally on the page in front of you. It is not used to read, monitor, or transmit page content anywhere.</p>
+
+<h2>6. Third parties</h2>
+<p>The extension contains no third-party SDKs, libraries that phone home, CDNs, or embedded content. The only third parties involved are the browser extension stores themselves (Chrome Web Store, Firefox Add-ons / AMO), which handle distribution and their own update checks under their respective privacy policies.</p>
+
+<h2>7. Your controls</h2>
+<ul>
+  <li><strong>Review &amp; export:</strong> settings and profiles can be exported to a JSON file from the extension's Options page — the export happens locally in your browser.</li>
+  <li><strong>Delete:</strong> use "Full reset" in Options to erase all stored settings and logs, or simply uninstall the extension, which removes everything it stored.</li>
+  <li><strong>Disable history:</strong> the fill log is limited to 25 entries and never leaves your device; clearing it via reset is immediate.</li>
+</ul>
+
+<h2>8. Children's privacy</h2>
+<p>AutoForm Fill is a developer/QA tool. It does not knowingly collect any information from anyone — including children under 13 — because it collects no information at all.</p>
+
+<h2>9. Security</h2>
+<p>Because no data is transmitted or stored remotely, there is no server-side breach risk. Data stored by the extension is protected by your browser's own profile security and is only readable by the extension itself on your machine.</p>
+
+<h2>10. Changes to this policy</h2>
+<p>If the extension's data practices ever change, this policy will be updated accordingly and the effective date above will be revised. Material changes will also be noted in the extension's release notes. The latest version of this policy is available in the project repository at <a href="https://github.com/needyamin/auto-form-fill-chrome-firefox-extension">github.com/needyamin/auto-form-fill-chrome-firefox-extension</a>.</p>
+
+<h2>11. Contact</h2>
+<p>Questions about this policy or the extension? Reach the developer:</p>
+<ul>
+  <li>Website: <a href="https://inside.ansnew.com/">inside.ansnew.com</a></li>
+  <li>Issues: <a href="https://github.com/needyamin/auto-form-fill-chrome-firefox-extension/issues">GitHub issue tracker</a></li>
+  <li>Md. Yamin Hossain (ANSNEW TECH.)</li>
+</ul>
+
+<footer>
+  AutoForm Fill – Test Data &amp; Form Filler for QA · Privacy Policy · Effective September 23, 2026
+</footer>
+
+</div>
+</body>
+</html>
